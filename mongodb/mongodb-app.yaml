@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mongodb
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: mongodb-sharded
+    targetRevision: 6.6.7
+  destination:
+    namespace: mongodb
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    syncOptions:
+    - PruneLast=true
+    - CreateNamespace=true
+  revisionHistoryLimit: 1
