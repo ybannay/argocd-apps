@@ -8,13 +8,13 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://charts.bitnami.com/bitnami
-    chart: keycloak
-    targetRevision: 9.2.2
+    repoURL: {{ .Values.repoUrl }}
+    path: keycloak
+    targetRevision: {{ .Values.targetRevision }}
     helm:
-      parameters:
-        - name: auth.adminUser
-          value: admin
+      values: |
+        keycloak:
+        {{- toYaml .Values.prometheus | nindent 10 }}
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak

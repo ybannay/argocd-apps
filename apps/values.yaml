@@ -1,0 +1,17 @@
+# Global Values
+repoUrl: 'https://github.com/ybannay/argocd-apps.git'
+targetRevision: HEAD
+region: ''
+account: ''
+clusterName: ''
+destinationServer: ''
+argoNamespace: ''
+argoProject: ''
+
+keycloak:
+  auth:
+    adminUser: "Admin"
+  createNamespace: true
+  serviceAccountName:
+  roleArn:
+  ampWorkspaceUrl:
