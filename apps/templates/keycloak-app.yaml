@@ -2,21 +2,21 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: keycloak
-  namespace: argocd
+  namespace: keycloak
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: {{ .Values.repoUrl }}
+    repoURL: {{ {{ .Values.spec.source.repoURL }} }}
     path: keycloak
-    targetRevision: {{ .Values.targetRevision }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
       values: |
         keycloak:
         {{- toYaml .Values.prometheus | nindent 10 }}
   destination:
-    server: https://kubernetes.default.svc
+    server: {{ .Values.spec.destination.server }}
     namespace: keycloak
   syncPolicy:
     syncOptions:
