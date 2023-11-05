@@ -17,8 +17,8 @@ spec:
           value: admin
       values: |
         initContainers:
-  	  - name: ubuntu
-    	    image: ubuntu:latest
+          - name: ubuntu
+            image: ubuntu:latest
             imagePullPolicy: Always      
   destination:
     server: https://kubernetes.default.svc
