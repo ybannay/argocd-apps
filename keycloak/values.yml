@@ -1,0 +1,4 @@
+initContainers:
+  - name: ubuntu
+    image: ubuntu:latest
+    imagePullPolicy: Always
