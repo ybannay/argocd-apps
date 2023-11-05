@@ -15,8 +15,11 @@ spec:
       parameters:
         - name: auth.adminUser
           value: admin
-      valuesFiles:
-      - values.yml
+      values: |
+        initContainers:
+  	  - name: ubuntu
+    	    image: ubuntu:latest
+            imagePullPolicy: Always      
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak
