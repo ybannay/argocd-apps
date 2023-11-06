@@ -18,7 +18,7 @@ spec:
       values: |
         initContainers:
             - name: theme
-              image: youssefbannay1/theme:0.0.1
+              image: youssefbannay1/theme:0.0.2
               imagePullPolicy: Always
               command:
                 - sh
