@@ -17,9 +17,30 @@ spec:
           value: admin
       values: |
         initContainers:
-          - name: theme
-            image: youssefbannay1/them:0.0.1
-            imagePullPolicy: Always      
+            - name: theme
+              image: youssefbannay1/them:0.0.1
+              imagePullPolicy: Always
+              command:
+                - sh
+              args:
+                - -c
+                - |
+              echo "Copying My theme..."
+              cp -R /my-theme/* /theme
+            volumeMounts:
+              - name: theme
+              mountPath: /theme
+          preStartScript: mkdir -p /opt/jboss/keycloak/themes/my-theme && cp -R /theme/* /opt/jboss/keycloak/themes/my-theme/ 
+
+          extraVolumes: |
+            - name: theme
+              mountPath: /theme
+
+          extraVolumeMounts: |
+            - name: theme
+              mountPath: /theme
+              emptyDir: {}                          
+
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak
