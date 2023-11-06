@@ -30,16 +30,15 @@ spec:
             volumeMounts:
               - name: theme
               mountPath: /theme
-          preStartScript: mkdir -p /opt/jboss/keycloak/themes/my-theme && cp -R /theme/* /opt/jboss/keycloak/themes/my-theme/ 
+        preStartScript: mkdir -p /opt/jboss/keycloak/themes/my-theme && cp -R /theme/* /opt/jboss/keycloak/themes/my-theme/ 
 
-          extraVolumes: |
-            - name: theme
-              mountPath: /theme
+        extraVolumes: |
+          - name: theme
+            mountPath: /theme
 
-          extraVolumeMounts: |
-            - name: theme
-              mountPath: /theme
-              emptyDir: {}                          
+        extraVolumeMounts: |
+          - name: theme
+            mountPath: /theme                          
 
   destination:
     server: https://kubernetes.default.svc
