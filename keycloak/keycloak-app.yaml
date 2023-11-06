@@ -25,11 +25,11 @@ spec:
               args:
                 - -c
                 - |
-              echo "Copying My theme..."
-              cp -R /my-theme/* /theme
-            volumeMounts:
-              - name: theme
-              mountPath: /theme
+                  echo "Copying My theme..."
+                  cp -R /my-theme/* /theme
+              volumeMounts:
+                - name: theme
+                  mountPath: /theme
 
         extraVolumes: |
           - name: theme
