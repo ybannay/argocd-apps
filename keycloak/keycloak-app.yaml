@@ -37,7 +37,7 @@ spec:
 
         extraVolumeMounts: |
           - name: theme
-            mountPath: /opt/bitnami/keycloak/themes                          
+            mountPath: /opt/bitnami/keycloak/themes/openinnovation                          
 
   destination:
     server: https://kubernetes.default.svc
