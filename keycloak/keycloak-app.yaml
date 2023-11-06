@@ -26,7 +26,7 @@ spec:
                 - -c
                 - |
                   echo "Copying My theme..."
-                  cp -R /my-theme/* /theme
+                  cp -R /openinnovation-theme/* /theme
               volumeMounts:
                 - name: theme
                   mountPath: /theme
