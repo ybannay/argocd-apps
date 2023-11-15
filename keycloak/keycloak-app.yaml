@@ -18,15 +18,15 @@ spec:
       values: |
         initContainers:
             - name: theme
-              image: youssefbannay1/theme:0.0.2
+              image: openinnovationai/keycloak-theme:1.0.0
               imagePullPolicy: Always
               command:
                 - sh
               args:
                 - -c
                 - |
-                  echo "Copying My theme..."
-                  cp -R /openinnovation-theme/* /theme
+                  echo "Copying custome login theme"
+                  cp -R /themes/default/* /theme
               volumeMounts:
                 - name: theme
                   mountPath: /theme
@@ -37,7 +37,7 @@ spec:
 
         extraVolumeMounts: |
           - name: theme
-            mountPath: /opt/bitnami/keycloak/themes/openinnovation                          
+            mountPath: /opt/bitnami/keycloak/themes/default                          
 
   destination:
     server: https://kubernetes.default.svc
