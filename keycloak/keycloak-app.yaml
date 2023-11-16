@@ -20,6 +20,8 @@ spec:
             - name: theme
               image: openinnovationai/keycloak-theme:1.0.0
               imagePullPolicy: Always
+              imagePullSecrets:
+              - name: dockerconfigjson
               command:
                 - sh
               args:
