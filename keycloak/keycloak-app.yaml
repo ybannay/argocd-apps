@@ -30,8 +30,9 @@ spec:
               volumeMounts:
                 - name: theme
                   mountPath: /theme
-        imagePullSecrets:
-          - dockerconfigjson
+        global:
+          imagePullSecrets:
+            - dockerconfigjson
         extraVolumes: |
           - name: theme
             mountPath: /theme
